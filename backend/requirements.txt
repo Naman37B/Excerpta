@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+pymupdf
+pymupdf4llm
+chromadb
+sentence-transformers
+flashrank
+ollama
+rank_bm25
+pytest
+httpx
+deepeval
+transformers
+nltk

@@ -1,0 +1,25 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./chromadb_store:/app/chromadb_store
+      - ./tracker.db:/app/tracker.db
+      - ./bm25_index.pkl:/app/bm25_index.pkl
+    environment:
+      # Ollama runs as a native systemd service on the host, not in a
+      # container — point at it via the Docker bridge, not "localhost"
+      # (which inside a container refers to the container itself).
+      - OLLAMA_HOST=http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend

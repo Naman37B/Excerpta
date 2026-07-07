@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0f18;
+  --color-parchment: #f4f0e6;
+  --color-brass: #c5a059;
+  --color-verdigris: #43b3ae;
+  --color-rule: #1e293b;
+  --color-muted: #64748b;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-rule);
+  }
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-parchment);
+    font-feature-settings: "tnum" 1;
+  }
+  ::selection {
+    background: rgba(212, 161, 92, 0.28);
+  }
+  
+  /* Visible keyboard focus everywhere */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--color-verdigris);
+    outline-offset: 2px;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* The signature element: an excerpt card clipped like a torn page */
+  .specimen-card {
+    clip-path: polygon(
+      0% 10px, 3% 2px, 6% 10px, 9% 2px, 12% 10px, 15% 2px, 18% 10px, 21% 2px,
+      24% 10px, 27% 2px, 30% 10px, 33% 2px, 36% 10px, 39% 2px, 42% 10px,
+      45% 2px, 48% 10px, 51% 2px, 54% 10px, 57% 2px, 60% 10px, 63% 2px,
+      66% 10px, 69% 2px, 72% 10px, 75% 2px, 78% 10px, 81% 2px, 84% 10px,
+      87% 2px, 90% 10px, 93% 2px, 96% 10px, 99% 2px, 100% 10px,
+      100% 100%, 0% 100%
+    );
+  }
+
+  /* Brass corner tab holding the page number */
+  .specimen-tag {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background-color: var(--color-brass);
+    color: var(--color-ink);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-family: monospace;
+    font-weight: 600;
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.125rem;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
+  }
+
+  .rule-label {
+    font-family: monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-muted);
+  }
+}
