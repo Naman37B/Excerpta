@@ -64,11 +64,3 @@ cd backend
 pytest -m "not llm_eval"          # fast, no LLM — what CI runs
 pytest -m llm_eval -v             # the real golden-set evaluation, run locally
 ```
-
-## Before calling any of this done
-
-1. Delete `chromadb_store/` before the first real ingestion — the vector distance space is fixed at collection-creation time, so a stale collection from earlier testing silently keeps the wrong config.
-2. Watch `nvidia-smi` during a real multi-turn chat while uploading a second document, to confirm the VRAM budget above actually holds rather than trusting the arithmetic.
-3. Upload a second PDF and keyword-search for a term only in it, to confirm BM25 actually rebuilds on ingestion.
-4. Run `pytest -m llm_eval` for real and read the pass/fail output, not just confirm it executes.
-5. Open the browser's network tab during a chat request and confirm both SSE event types (`citations`, then `token`s, then `done`) actually arrive — then confirm a document-scoped chat never surfaces a page from a different document.
