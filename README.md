@@ -64,3 +64,19 @@ cd backend
 pytest -m "not llm_eval"          # fast, no LLM — what CI runs
 pytest -m llm_eval -v             # the real golden-set evaluation, run locally
 ```
+
+<img width="2880" height="1800" alt="01-empty-archive" src="https://github.com/user-attachments/assets/3543404e-0f91-465f-8078-c4a27146edce" />
+
+<img width="2880" height="1800" alt="02-archive-ready" src="https://github.com/user-attachments/assets/6bece7e1-1445-4290-9705-c3c600ba82e8" />
+
+<img width="2880" height="1800" alt="03-upload-processing" src="https://github.com/user-attachments/assets/ed314705-0f8d-4520-9f45-beca0c258e1d" />
+
+<img width="2880" height="1800" alt="04-upload-indexed" src="https://github.com/user-attachments/assets/7354241c-b7de-4dff-946e-a342f57baf47" />
+
+<img width="2880" height="1800" alt="05-answer-streaming" src="https://github.com/user-attachments/assets/cc5f8dfe-841b-4495-ae73-283ef5f02ee0" />
+
+<img width="2880" height="1800" alt="06-answer-with-citations" src="https://github.com/user-attachments/assets/b2580cc0-1386-4cf1-94c7-e8d531254934" />
+
+<img width="2880" height="1800" alt="07-not-found" src="https://github.com/user-attachments/assets/f0d35171-e435-42f6-a030-a867963742f8" />
+
+<img width="2880" height="1800" alt="08-scoped-to-one-document" src="https://github.com/user-attachments/assets/f5943054-2e8c-4a5e-99af-5bf7fc6e5cc5" />
